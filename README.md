@@ -1,4 +1,6 @@
 # Near_Earth_Objects_Exploration
+
+
 In this project Python allows to scrutinize various space objects' data taken from NASA official site
 
 There are 7 files that will take data from csv & json, match the required parameters in Terminal. Main.py is the glue of all the files as it connects them together. 

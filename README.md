@@ -27,3 +27,6 @@ Commands to enter for testing:
 `python3 main.py inspect --verbose --name Ganymed`
 have mathing
 
+`python3 main.py inspect --name Halley`
+doesn't have one
+

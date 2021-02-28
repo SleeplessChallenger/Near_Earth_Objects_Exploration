@@ -5,7 +5,7 @@ def UniteApprNeo(neos, approaches):
     for x in approaches:
         for y in neos:
             if x._designation == y.designation:
-                x.neo = y #here .neo in CloseApproach is placed
+                x.neo = y
                 if y.designation in Neos:
                     Neos[y.designation].approaches.append(x) #if such object with such designation already exists, we take obj from hashmap
                                                             #[it's placed there as obj.designation = obj] => append approaches

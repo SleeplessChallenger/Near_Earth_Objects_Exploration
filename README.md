@@ -40,5 +40,22 @@ doesn't have one
 4) Then *result* and *bucket* find themselves into database.py 
 
 
+Explanation of the underhood of *filters.py*:
 
+
+1)User inputs some filter data like years, distance etc
+
+2)filter() invokes some inherit class =>
+
+operator is attached to 'op' and user's value is attached to 'value'
+
+3)'get' in inherit class overrides the one in super class
+
+=> otherwise Error is triggered. 'get' takes particular instance
+
+of the CloseApproach instance or by .neo references NearEarthObject
+
+4)__call__ is triggered: that 'op' from above, compares CloseApproach's attribute and 'value'
+
+returning bool outcome
 

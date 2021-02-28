@@ -40,7 +40,7 @@ doesn't have one
 4) Then *result* and *bucket* find themselves into database.py 
 
 
-Explanation of the underhood of *filters.py*:
+**Explanation of the underhood of *filters.py*:**
 
 
 1)User inputs some filter data like years, distance etc

@@ -17,6 +17,8 @@ via .neo
 
 5. write.py will write generated data from NEODatabase to either csv or json file.
 
+*If you want more indepth walk by check a little bit below
+
 
 **Notice**
 In data folder I've uploaded shortened versions of .json and .csv
@@ -29,4 +31,14 @@ have matching
 
 `python3 main.py inspect --name Halley`
 doesn't have one
+
+
+**Some additional clarifications**
+1) main.py triggers NEODatabase(load_neos(args.neofile), load_approaches(args.cadfile)) in database.py
+2) .csv and .json firstly go into models.py and then into database.py
+3) in models.py data is tweaked by classes and then *tweaked* data gets appended to *result* and *bucket*.
+4) Then *result* and *bucket* find themselves into database.py 
+
+
+
 

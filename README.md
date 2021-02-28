@@ -16,3 +16,8 @@ via .neo
 4. filters.py has cornucopia of filters which are input by users and are applied on NEODatabase in database.py. It has limit() function which put a constraint on the output as our dataset is very big.
 
 5. write.py will write generated data from NEODatabase to either csv or json file.
+
+
+**Notice**
+In data folder I've uploaded shortened versions of .json and .csv
+so as to ease testing. Otherwise, it took eternity to load all the data.

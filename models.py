@@ -123,8 +123,8 @@ class CloseApproach:
 
     def __repr__(self):
         """Return `repr(self)`, a computer-readable string representation of this object."""
-        return (f"CloseApproach(time={self.time_str!r}, distance={self.distance:.2f}, "
-                f"velocity={self.velocity:.2f}, neo={self.neo!r})")
+        return (f"CloseApproach(time={self.time_str}, distance={self.distance:.2f}, "
+                f"velocity={self.velocity:.2f}, neo={self.neo})")
 
     def serialize(self):
         return {'datetime_utc' : datetime_to_str(self.time), 'distance_au' : self.distance, 'velocity_km_s' : self.velocity, 'neo' : self.neo.serialize()}

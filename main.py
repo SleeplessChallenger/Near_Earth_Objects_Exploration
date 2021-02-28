@@ -58,10 +58,7 @@ _START = time.time()
 
 def date_fromisoformat(date_string):
     """Return a `datetime.date` corresponding to a string in YYYY-MM-DD format.
-
-    In Python 3.7+, there is `datetime.date.fromisoformat`, but alas - we're
-    supporting Python 3.6+.
-
+    
     :param date_string: A date in the format YYYY-MM-DD.
     :return: A `datetime.date` corresponding the given date string.
     """

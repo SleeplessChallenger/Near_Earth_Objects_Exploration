@@ -21,3 +21,9 @@ via .neo
 **Notice**
 In data folder I've uploaded shortened versions of .json and .csv
 so as to ease testing. Otherwise, it took eternity to load all the data.
+
+Commands to enter for testing:
+`python3 main.py inspect --pdes 433` 
+`python3 main.py inspect --verbose --name Ganymed`
+have mathing
+

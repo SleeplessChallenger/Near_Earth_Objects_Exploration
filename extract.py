@@ -38,9 +38,3 @@ def load_approaches(cad_json_path):
             bucket.append(CloseApproach(x[0], time = x[3], 
                                         distance = float(x[4]), velocity = float(x[7])))
     return bucket
-
-
-
-
-
-

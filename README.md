@@ -3,7 +3,7 @@
 
 In this project Python allows to scrutinize various space objects' data taken from **NASA official site**
 
-There are 7 files that will take data from csv & json, match the required parameters in Terminal. Main.py is the glue of all the files as it connects them together. 
+There are 7 files that will take data from csv & json, match the required parameters in Terminal. main.py is the glue of all the files as it connects them together. 
 
 1. extract.py will take data from csv & json, unpack it and provide into models.py 
 

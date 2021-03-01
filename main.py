@@ -47,6 +47,7 @@ from write import write_to_csv, write_to_json
 PROJECT_ROOT = pathlib.Path(__file__).parent.resolve()
 DATA_ROOT = PROJECT_ROOT / 'data'
 # print(pathlib.Path('.').absolute())
+# print(pathlib.Path.cwd())
 
 def date_fromisoformat(date_string):
     """Return a `datetime.date` corresponding to a string in YYYY-MM-DD format.

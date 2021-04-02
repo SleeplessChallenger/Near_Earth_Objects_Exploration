@@ -19,7 +19,8 @@ class NearEarthObject:
     """A near-Earth object (NEO).
 
     An NEO encapsulates semantic and physical parameters about the object, such
-    as its primary designation (required, unique), IAU name (optional), diameter
+    as its primary designation (required, unique),
+    IAU name (optional), diameter
     in kilometers (optional - sometimes unknown), and whether it's marked as
     potentially hazardous to Earth.
 
@@ -28,29 +29,30 @@ class NearEarthObject:
     `NEODatabase` constructor.
     """
 
-    def __init__(self, designation = "", name = None, diameter = None, hazardous = 'N'):
+    def __init__(self, designation="", name=None, diameter=None, hazardous='N'):
         self.designation = designation
         self.name = name
         self.diameter = diameter
         self.hazardous = hazardous
-        self.approaches = [] 
+        self.approaches = []
 
     @property
     def fullname(self):
         """Return a representation of the full name of this NEO."""
-        return f"{self.designation} and {self.name}" if isinstance(self.name, str) and self.name != '' else f"{self.designation}"
+        return f"{self.designation} and {self.name}"\
+               if isinstance(self.name, str)\
+               and self.name != '' else f"{self.designation}"
 
     @property
     def name(self):
         return self._name
-    
+
     @name.setter
     def name(self, var):
         if var is '' or var is None:
             self._name = None
         else:
             self._name = var
-
 
     @property
     def diameter(self):
@@ -74,25 +76,28 @@ class NearEarthObject:
         else:
             self._hazardous = False
 
-
     def __str__(self):
         """Return `str(self)`."""
-        return f"NearEarthObject: designation = {self.designation}, name = {self.name} with diameter = {self.diameter}"
-
+        return f"NearEarthObject: designation = {self.designation},\
+                 name = {self.name} with diameter = {self.diameter}"
 
     def __repr__(self):
-        return (f"NearEarthObject(designation: {self.designation}, name={self.name}, "
+        return (f"NearEarthObject(designation: {self.designation},\
+                  name={self.name}, "
                 f"diameter={self.diameter}, hazardous={self.hazardous})")
 
     def serialize(self):
-        name = self.name if self.name != None else ''
-        return {'designation' : self.designation, 'name' : name, 'diameter_km' : self.diameter, 'potentially_hazardous' : self.hazardous}
+        name = self.name if self.name is not None else ''
+        return {'designation': self.designation, 'name': name,
+                'diameter_km': self.diameter,
+                'potentially_hazardous': self.hazardous}
 
 
 class CloseApproach:
     """A close approach to Earth by an NEO.
 
-    A `CloseApproach` encapsulates information about the NEO's close approach to
+    A `CloseApproach` encapsulates information about the
+    NEO's close approach to
     Earth, such as the date and time (in UTC) of closest approach, the nominal
     approach distance in astronomical units, and the relative approach velocity
     in kilometers per second.
@@ -102,37 +107,35 @@ class CloseApproach:
     private attribute, but the referenced NEO is eventually replaced in the
     `NEODatabase` constructor.
     """
-    def __init__(self, designation, time, distance = float(0.0), velocity = float(0.0)):       
+    def __init__(self, designation, time, distance=float(0.0), velocity=float(0.0)):
         self._designation = designation
-        self.time = cd_to_datetime(time) 
+        self.time = cd_to_datetime(time)
         self.distance = distance
         self.velocity = velocity
 
-        #reference NEO
-        self.neo = None 
+        # reference NEO
+        self.neo = None
 
     @property
     def time_str(self):
         return datetime_to_str(self.time)
-       
 
     def __str__(self):
         """Return `str(self)`."""
-        return (f"CloseApproach: distance: {self.distance}, velocity: {self.velocity} "
+        return (f"CloseApproach: distance: {self.distance},\
+                  velocity: {self.velocity} "
                 f"NEO object: {self.neo}, time: {self.time}")
 
     def __repr__(self):
-        """Return `repr(self)`, a computer-readable string representation of this object."""
-        return (f"CloseApproach(time={self.time_str}, distance={self.distance:.2f}, "
-                f"velocity={self.velocity:.2f}, neo={self.neo})")
+        """Return `repr(self)`, a computer-readable
+           string representation of this object."""
+        return (f"CloseApproach(time={self.time_str},\
+                  distance={self.distance:.2f}, "
+                f"velocity={self.velocity:.2f},\
+                  neo={self.neo})")
 
     def serialize(self):
-        return {'datetime_utc' : datetime_to_str(self.time), 'distance_au' : self.distance, 'velocity_km_s' : self.velocity, 'neo' : self.neo.serialize()}
-
-
-# obj = CloseApproach('Comet', '2020-Dec-31 12:00', 65, 236)
-# print(obj.time)
-# print(obj.time_str)
-
-
-
+        return {'datetime_utc': datetime_to_str(self.time),
+                'distance_au': self.distance,
+                'velocity_km_s': self.velocity,
+                'neo': self.neo.serialize()}

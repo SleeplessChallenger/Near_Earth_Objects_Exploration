@@ -3,7 +3,7 @@
 
 <h2>In this project Python allows to scrutinize various space objects' data taken from <i>NASA official site</i> </h2>
 
-There are 7 files that will take data from csv & json, match the required parameters in Terminal. main.py is the glue of all the files as it connects them together. Also, requirements.txt was added so as you can install all the required packages.
+There are 7 files that will take data from csv & json, match the required parameters in Terminal. main.py is the glue of all the files as it connects them together. Also, **requirements.txt** was added so as you can install all the required packages.
 The project is PEP 8 compliant and was checked with **pycodestyle**
 
 <h3>For precise notes & explanation, please, look into files and <i># or ''' '''</i> things</h3>

@@ -59,3 +59,25 @@ of the CloseApproach instance or by .neo references NearEarthObject
 
 returning bool outcome
 
+```bash
+.
+├── README.md
+├── __pycache__
+│   ├── database.cpython-37.pyc
+│   ├── extract.cpython-37.pyc
+│   ├── filters.cpython-37.pyc
+│   ├── helpers.cpython-37.pyc
+│   ├── models.cpython-37.pyc
+│   └── write.cpython-37.pyc
+├── data
+│   ├── cad.json
+│   └── neos.csv
+├── database.py
+├── extract.py
+├── filters.py
+├── helpers.py
+├── main.py
+├── models.py
+└── write.py
+```
+

@@ -1,9 +1,11 @@
 # Near_Earth_Objects_Exploration
 
 
-In this project Python allows to scrutinize various space objects' data taken from **NASA official site**
+<h2>In this project Python allows to scrutinize various space objects' data taken from **NASA official site** </h2>
 
-There are 7 files that will take data from csv & json, match the required parameters in Terminal. main.py is the glue of all the files as it connects them together. 
+There are 7 files that will take data from csv & json, match the required parameters in Terminal. main.py is the glue of all the files as it connects them together.
+
+<h3>For precise notes & explanation, please, look into files and **# or ''' '''** things</h3>
 
 1. extract.py will take data from csv & json, unpack it and provide into models.py 
 

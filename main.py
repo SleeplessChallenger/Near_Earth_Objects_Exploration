@@ -49,6 +49,7 @@ DATA_ROOT = PROJECT_ROOT / 'data'
 # print(pathlib.Path('.').absolute())
 # print(pathlib.Path.cwd())
 
+
 def date_fromisoformat(date_string):
     """Return a `datetime.date` corresponding to a string in YYYY-MM-DD format.
 
@@ -77,14 +78,20 @@ def make_parser():
     parser.add_argument('--cadfile', default=(DATA_ROOT / 'cad.json'),
                         type=pathlib.Path,
                         help="Path to JSON file of close approach data.")
+
     subparsers = parser.add_subparsers(dest='cmd')
+    # 'cmd' then can be added to 'args' so as to
+    #  call this subparser
 
     # Add the `inspect` subcommand parser.
     inspect = subparsers.add_parser('inspect',
                                     description="Inspect an NEO by primary designation or by name.")
     inspect.add_argument('-v', '--verbose', action='store_true',
                          help="Additionally, print all known close approaches of this NEO.")
+    # next line is for '-p' & '-n' which will prevent
+    # user from entering both params. Only one
     inspect_id = inspect.add_mutually_exclusive_group(required=True)
+
     inspect_id.add_argument('-p', '--pdes',
                             help="The primary designation of the NEO to inspect (e.g. '433').")
     inspect_id.add_argument('-n', '--name',
@@ -139,11 +146,6 @@ def make_parser():
                        help="File in which to save structured results. "
                             "If omitted, results are printed to standard output.")
 
-    repl = subparsers.add_parser('interactive',
-                                 description="Start an interactive command session "
-                                             "to repeatedly run `interact` and `query` commands.")
-    repl.add_argument('-a', '--aggressive', action='store_true',
-                      help="If specified, kill the session whenever a project file is modified.")
     return parser, inspect, query
 
 
@@ -176,6 +178,8 @@ def inspect(database, pdes=None, name=None, verbose=False):
         return None
 
     # Display information about this NEO, and optionally its close approaches if verbose.
+    # Don't remove this print()!!!!!!
+    # It's crucial to display info from the query
     print(neo)
     if verbose:
         for approach in neo.approaches:

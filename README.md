@@ -50,7 +50,7 @@ doesn't have one
 
 2. `filters.py -> create_filters()` will generate a list of filters that are classes: `filters` variable in main.py looks like [Date(op=operator.eq, value=2020-01-01)]. Where `op` will take place of `self.op` and `value` will be `self.value`. Due to the fact that Date/Distance etc classes are inherited ones => aforewritten stuff will go smoothly. 
 
-3. Hence, `filters` variable in `main.py` is a list of `AttributeFilter` classes. It is supplied to `database.query(filters)`. `map(lambda x: x(approach), filters)` spits out something like [False], [True] etc, then there is a check that every thing in `temp` is True else skip this approach. 
+3. Hence, `filters` variable in `main.py` is a list of `AttributeFilter` classes. It is supplied to `database.query(filters)`. `temp = map(lambda x: x(approach), filters)` spits out something like [False], [True] etc, then there is a check that every thing in `temp` is True else skip this approach. 
 
 **Note:** `map(lambda x: x(approach), filters)` here every `x` iterates over `filters` and then applied to `approach`: `x(approach)` where literally it means
           `x.__call__(approach)` as there is `__call__` in AttributeFilter. Thus it goes to AttributeFilter class and in `__call__` `get()` is triggered. As     every `x` is an inherited class of super class Attribute filter => `Date/Distance.get()` is triggered. So, it overrides `get()` classmethod in super class by

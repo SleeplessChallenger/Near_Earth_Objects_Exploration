@@ -46,22 +46,16 @@ doesn't have one
 
 **Explanation of the underhood of *filters.py*:**
 
+1. At first, `main.py` triggers `create_filters(arguments...)` where filters from command line are supplied.
 
-1)User inputs some filter data like years, distance etc
+2. `filters.py -> create_filters()` will generate a list of filters that are classes: `filters` variable in main.py looks like [Date(op=operator.eq, value=2020-01-01)]. Where `op` will take place of `self.op` and `value` will be `self.value`. Due to the fact that Date/Distance etc classes are inherited ones => aforewritten stuff will go smoothly. 
 
-2)filter() invokes some inherit class =>
+3. Hence, `filters` variable in `main.py` is a list of `AttributeFilter` classes. It is supplied to `database.query(filters)`. `map(lambda x: x(approach), filters)` spits out something like [False], [True] etc, then there is a check that every thing in `temp` is True else skip this approach. 
 
-operator is attached to 'op' and user's value is attached to 'value'
-
-3)'get' in inherit class overrides the one in super class
-
-=> otherwise Error is triggered. 'get' takes particular instance
-
-of the CloseApproach instance or by .neo references NearEarthObject
-
-4)__call__ is triggered: that 'op' from above, compares CloseApproach's attribute and 'value'
-
-returning bool outcome
+**Note:** `map(lambda x: x(approach), filters)` here every `x` iterates over `filters` and then applied to `approach`: `x(approach)` where literally it means
+          `x.__call__(approach)` as there is `__call__` in AttributeFilter. Thus it goes to AttributeFilter class and in `__call__` `get()` is triggered. As     every `x` is an inherited class of super class Attribute filter => `Date/Distance.get()` is triggered. So, it overrides `get()` classmethod in super class by
+          the same method in inherited class. 
+          After it receives value from return `approach.distance/return approach.velocity` etc, `self.op` compares 2 values and returns bool value.
 
 ```bash
 .

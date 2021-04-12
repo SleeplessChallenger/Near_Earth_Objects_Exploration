@@ -60,15 +60,11 @@ doesn't have one
 ```bash
 .
 ├── README.md
-├── __pycache__
-│   ├── database.cpython-37.pyc
-│   ├── extract.cpython-37.pyc
-│   ├── filters.cpython-37.pyc
-│   ├── helpers.cpython-37.pyc
-│   ├── models.cpython-37.pyc
-│   └── write.cpython-37.pyc
+├── argparse_Explanation.py
 ├── data
+│   ├── cad-2020.json
 │   ├── cad.json
+│   ├── neos-2020.csv
 │   └── neos.csv
 ├── database.py
 ├── extract.py
@@ -76,6 +72,15 @@ doesn't have one
 ├── helpers.py
 ├── main.py
 ├── models.py
+├── requirements.txt
+├── tests
+│   ├── __init__.py
+│   ├── test_dataFiles.py
+│   ├── test_extract_data.py
+│   ├── test_limit_func.py
+│   ├── test_models.py
+│   ├── test_pythonVersion.py
+│   ├── test_query_func.py
+│   └── test_write_func.py
 └── write.py
 ```
-

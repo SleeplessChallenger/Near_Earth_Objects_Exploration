@@ -40,8 +40,8 @@ class NearEarthObject:
     def fullname(self):
         """Return a representation of the full name of this NEO."""
         return f"{self.designation} and {self.name}"\
-               if isinstance(self.name, str)\
-               and self.name != '' else f"{self.designation}"
+        if isinstance(self.name, str) and self.name != ''\
+        else f"{self.designation}"
 
     @property
     def name(self):
@@ -78,13 +78,12 @@ class NearEarthObject:
 
     def __str__(self):
         """Return `str(self)`."""
-        return f"NearEarthObject: designation = {self.designation},\
-                 name = {self.name} with diameter = {self.diameter}"
+        return f'''NearEarthObject: designation = {self.designation},
+name = {self.name} with diameter = {self.diameter}'''
 
     def __repr__(self):
-        return (f"NearEarthObject(designation: {self.designation},\
-                  name={self.name}, "
-                f"diameter={self.diameter}, hazardous={self.hazardous})")
+        return (f'''NearEarthObject(designation: {self.designation}, name={self.name},
+diameter={self.diameter}, hazardous={self.hazardous})''')
 
     def serialize(self):
         name = self.name if self.name is not None else ''
@@ -122,17 +121,15 @@ class CloseApproach:
 
     def __str__(self):
         """Return `str(self)`."""
-        return (f"CloseApproach: distance: {self.distance},\
-                  velocity: {self.velocity} "
-                f"NEO object: {self.neo}, time: {self.time}")
+        return (f'''CloseApproach: distance: {self.distance}, 
+velocity: {self.velocity} 
+NEO object: {self.neo}, time: {self.time}''')
 
     def __repr__(self):
         """Return `repr(self)`, a computer-readable
            string representation of this object."""
-        return (f"CloseApproach(time={self.time_str},\
-                  distance={self.distance:.2f}, "
-                f"velocity={self.velocity:.2f},\
-                  neo={self.neo})")
+        return (f'''CloseApproach(time={self.time_str}, distance={self.distance:.2f}, 
+velocity={self.velocity:.2f}, neo={self.neo})''')
 
     def serialize(self):
         return {'datetime_utc': datetime_to_str(self.time),

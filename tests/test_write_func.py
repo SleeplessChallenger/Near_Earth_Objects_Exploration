@@ -46,6 +46,9 @@ def UncloseableStringIO(value=''):
 	buf = io.StringIO(value)
 	buf._close = buf.close
 	buf.close = lambda: False
+	# here lambda doesn't
+	# take arguments and by
+	# default gives `False`
 	yield buf
 	buf.close = buf._close
 	delattr(buf, '_close')
@@ -79,6 +82,7 @@ class CSVTest(unittest.TestCase):
 			else:
 				buf.seek(0)
 				cls.value = buf.getvalue()
+				# Return bytes containing the entire contents of the buffer
 
 	def test_csv_data_formed_good(self):
 		buf = io.StringIO(self.value)
